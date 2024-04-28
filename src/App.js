@@ -11,6 +11,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Signup from "./Pages/Signup";
 import { CartProvider } from "./Components/CartContext";
+import MyOrder from "./Pages/MyOrder";
 // import Cart from "./Pages/Cart";
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/createUser" element={<Signup />} />
             {/* <Route exact path="/cart" element={<Cart />} /> */}
+            <Route exact path="/MyOrder" element={<MyOrder />} />
           </Routes>
 
         </div>
