@@ -10,18 +10,25 @@ import {
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Signup from "./Pages/Signup";
+import { CartProvider } from "./Components/CartContext";
+// import Cart from "./Pages/Cart";
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/createUser" element={<Signup />} />
-        </Routes>
+    <CartProvider>
+      <Router>
 
-      </div>
-    </Router>
+        <div>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/createUser" element={<Signup />} />
+            {/* <Route exact path="/cart" element={<Cart />} /> */}
+          </Routes>
+
+        </div>
+
+      </Router>
+    </CartProvider>
   );
 }
 

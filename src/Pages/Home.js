@@ -68,11 +68,11 @@ function Home() {
                                 <div key={data._id} className='fs-3 m-3'>{data.category}</div>
                                 <hr />
                                 {fooditems.length !== 0 ? fooditems.filter((items) => items.category === data.category && items.name.toLowerCase().includes(search.toLowerCase())).map(filteritems => {
-                                    console.log(filteritems)
+                                    // console.log(filteritems)
                                     return (
 
                                         <div key={filteritems._id} className='col-12 col-md-6 col-lg-3'>
-                                            <Card image={filteritems.image} name={filteritems.name} description={filteritems.description} options={filteritems.options[0]} />
+                                            <Card filteritems={filteritems} options={filteritems.options[0]} />
                                         </div>
                                     )
                                 }) : ""

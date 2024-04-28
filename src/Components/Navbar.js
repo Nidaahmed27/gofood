@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from './CartContext';
+import Modal from '../Model';
+import Cart from '../Pages/Cart';
 function Navbar() {
-
+    let data = useCart();
+    const [cartView, setCartView] = useState(false)
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem("authToken");
@@ -33,9 +37,11 @@ function Navbar() {
                         <Link className="btn bg-black text-white mx-1" to="/createUser">Signup</Link>
                     </div>
                     : <div>
-                        <div className="btn bg-black text-white mx-2">
+                        <div className="btn bg-black text-white mx-2" onClick={() => { setCartView(true) }}>
                             My Cart
+                            <span className="badge bg-white text-black mx-2 ">{data.length}</span>
                         </div>
+                        {cartView ? <Modal onClose={() => { setCartView(false) }}><Cart /></Modal> : null}
                         <div className="btn bg-black text-white mx-2" onClick={handleLogout}>
                             Logout
                         </div>
